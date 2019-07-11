@@ -1,0 +1,26 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Valten123/cloud-config.git #git仓库地址
+          search-paths: config-repo #仓库路径
+          username: username  #账号密码写真实的快一些我觉得，不使用也能访问有点慢
+          password: password
+      label: master #仓库的分支
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
